@@ -14,10 +14,10 @@
     <bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">
         <property name="viewClass" value="org.springframework.web.servlet.view.JstlView"/>
         <property name="prefix" value=""/>
-        <property name="suffix" value=".jsp"/>
+        <property name="suffix" value=".htm"/>
     </bean>
     
     <!-- 处理器 -->
-   <!--  <bean name="/hello" class="com.luojie.ucloud.controller.HelloWorldController"/> -->
+    <bean name="/hello" class="com.dlut.ucloud.web.controller.HelloController"/>
     
 </beans>
