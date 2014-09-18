@@ -1,17 +1,80 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
-  <modelVersion>4.0.0</modelVersion>
-  <groupId>org.dlut.ucloud</groupId>
-  <artifactId>ucloud-all</artifactId>
-  <version>0.0.1-SNAPSHOT</version>
-  <packaging>pom</packaging>
-  <modules>
-    <module>ucloud-web</module>
-    <module>ucloud-vmmanage</module>
-    <module>ucloud-imagemanage</module>
-    <module>ucloud-accountmanage</module>
-    <module>ucloud-usermanage</module>
-    <module>ucloud-diskmanage</module>
-    <module>ucloud-common</module>
-  </modules>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<groupId>org.dlut.ucloud</groupId>
+	<artifactId>ucloud-all</artifactId>
+	<version>0.0.1-SNAPSHOT</version>
+	<packaging>pom</packaging>
+
+	<modules>
+		<module>ucloud-web</module>
+		<module>ucloud-vmmanage</module>
+		<module>ucloud-imagemanage</module>
+		<module>ucloud-accountmanage</module>
+		<module>ucloud-usermanage</module>
+		<module>ucloud-diskmanage</module>
+		<module>ucloud-common</module>
+	</modules>
+
+	<properties>
+		<java.version>1.6</java.version>
+		<java.encoding>UTF-8</java.encoding>
+		<spring-version>3.0.5.RELEASE</spring-version>
+	</properties>
+
+	<dependencyManagement>
+		<dependencies>
+			<!--spring 核心依赖包 -->
+			<dependency>
+				<groupId>org.springframework</groupId>
+				<artifactId>spring-core</artifactId>
+				<version>${spring-version}</version>
+			</dependency>
+			<dependency>
+				<groupId>org.springframework</groupId>
+				<artifactId>spring-context</artifactId>
+				<version>${spring-version}</version>
+			</dependency>
+			<dependency>
+				<groupId>org.springframework</groupId>
+				<artifactId>spring-context-support</artifactId>
+				<version>${spring-version}</version>
+			</dependency>
+			<dependency>
+				<groupId>org.springframework</groupId>
+				<artifactId>spring-aop</artifactId>
+				<version>${spring-version}</version>
+			</dependency>
+			<dependency>
+				<groupId>org.springframework</groupId>
+				<artifactId>spring-tx</artifactId>
+				<version>${spring-version}</version>
+			</dependency>
+			<dependency>
+				<groupId>org.springframework</groupId>
+				<artifactId>spring-asm</artifactId>
+				<version>${spring-version}</version>
+			</dependency>
+			<dependency>
+				<groupId>org.springframework</groupId>
+				<artifactId>spring-beans</artifactId>
+				<version>${spring-version}</version>
+			</dependency>
+
+			<!-- spring mvc 相关包 -->
+			<dependency>
+				<groupId>org.springframework</groupId>
+				<artifactId>spring-web</artifactId>
+				<version>${spring-version}</version>
+			</dependency>
+			<dependency>
+				<groupId>org.springframework</groupId>
+				<artifactId>spring-webmvc</artifactId>
+				<version>${spring-version}</version>
+			</dependency>
+
+		</dependencies>
+	</dependencyManagement>
+
 </project>
