@@ -18,6 +18,6 @@
     </bean>
     
     <!-- 处理器 -->
-    <bean name="/hello" class="com.luojie.ucloud.controller.HelloWorldController"/>
+   <!--  <bean name="/hello" class="com.luojie.ucloud.controller.HelloWorldController"/> -->
     
 </beans>
