@@ -8,7 +8,7 @@
 		http://www.springframework.org/schema/context/spring-context-3.0.xsd">
 
 	<!-- 激活自动检测注解，自动搜索@Controller和@RequstMapping注解的存在，包括其下面的子包 -->
-	<context:component-scan base-package="com.dlut.ucloud.web.controller" />
+	<context:component-scan base-package="com.dlut.ucloud.web" />
 
 	<!-- 处理类级别的@RequstMapping注解 -->
 	<bean
@@ -18,9 +18,29 @@
 		class="org.springframework.web.servlet.mvc.annotation.AnnotationMethodHandlerAdapter" />
 
 	<!-- DispatcherServlet接收到处理程序返回的视图名称，并解析为视图实现以供显示。 -->
-	<bean
-		class="org.springframework.web.servlet.view.InternalResourceViewResolver">
+	<!-- <bean class="org.springframework.web.servlet.view.InternalResourceViewResolver"> 
+		<property name="prefix" value="" /> <property name="suffix" value=".jsp" 
+		/> </bean> -->
+
+	<bean id="viewResolver"
+		class="org.springframework.web.servlet.view.velocity.VelocityViewResolver">
+		<property name="cache" value="true" />
 		<property name="prefix" value="" />
-		<property name="suffix" value=".jsp" />
+		<property name="suffix" value=".vm" />
+		<property name="contentType">
+			<value>text/html;charset=UTF-8</value>
+		</property>
 	</bean>
+
+	<bean id="velocityConfigurer"
+		class="org.springframework.web.servlet.view.velocity.VelocityConfigurer">
+		<property name="resourceLoaderPath" value="/WEB-INF/velo/" />
+		<property name="velocityProperties">
+			<props>
+				<prop key="input.encoding">utf-8</prop>
+				<prop key="output.encoding">utf-8</prop>
+			</props>
+		</property>
+	</bean>
+
 </beans>

@@ -11,13 +11,17 @@
 	</parent>
 
 	<artifactId>ucloud-web</artifactId>
-	<version>0.0.1-SNAPSHOT</version>
 	<packaging>war</packaging>
 	<name>ucloud-web Maven Webapp</name>
 	<url>http://maven.apache.org</url>
 
 	<dependencies>
-
+	
+		<dependency>
+			<groupId>org.dlut.ucloud</groupId>
+			<artifactId>ucloud-common</artifactId>
+		</dependency>
+		
 		<!--spring 核心依赖包 -->
 		<dependency>
 			<groupId>org.springframework</groupId>
@@ -63,6 +67,17 @@
 			<artifactId>javax.servlet-api</artifactId>
 			<scope>provided</scope>
 		</dependency>
+
+		<!-- velocity 相关包 -->
+			<dependency>
+				<groupId>org.apache.velocity</groupId>
+				<artifactId>velocity</artifactId>
+			</dependency>
+
+			<dependency>
+				<groupId>velocity-tools</groupId>
+				<artifactId>velocity-tools</artifactId>
+			</dependency>
 
 		<dependency>
 			<groupId>junit</groupId>
