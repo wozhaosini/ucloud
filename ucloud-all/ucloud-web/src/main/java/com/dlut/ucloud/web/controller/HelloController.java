@@ -17,23 +17,23 @@ import org.springframework.web.bind.annotation.RequestMethod;
  * 
  * @author luojie.lj 2014年9月18日 下午8:36:38
  */
-@RequestMapping("/hello.htm")
+@RequestMapping("/hello.do")
 @Controller
 public class HelloController {
 
-	@RequestMapping(method = RequestMethod.GET)
-	public String hello(Model model) {
-		model.addAttribute("message", "xixi");
-		return "hello";
-	}
-	
-//	public ModelAndView handleRequest(HttpServletRequest arg0,
-//			HttpServletResponse arg1) throws Exception {
-//		ModelAndView mv = new ModelAndView();
-//		mv.addObject("message", "xixi");
-//		mv.setViewName("hello");
-//
-//		return mv;
-//	}
+    @RequestMapping(method = RequestMethod.GET)
+    public String hello(Model model) {
+        model.addAttribute("message", "xixi");
+        return "hello";
+    }
+
+    //	public ModelAndView handleRequest(HttpServletRequest arg0,
+    //			HttpServletResponse arg1) throws Exception {
+    //		ModelAndView mv = new ModelAndView();
+    //		mv.addObject("message", "xixi");
+    //		mv.setViewName("hello");
+    //
+    //		return mv;
+    //	}
 
 }
