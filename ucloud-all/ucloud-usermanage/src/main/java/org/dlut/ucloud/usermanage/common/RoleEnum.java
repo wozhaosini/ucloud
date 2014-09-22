@@ -5,7 +5,7 @@
  * use it only in accordance with the terms of the license agreement you entered
  * into with etao.com .
  */
-package org.dlut.ucloud.common.enums;
+package org.dlut.ucloud.usermanage.common;
 
 /**
  * 角色枚举类

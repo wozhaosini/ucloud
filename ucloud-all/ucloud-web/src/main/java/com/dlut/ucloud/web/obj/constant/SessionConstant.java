@@ -12,6 +12,6 @@ package com.dlut.ucloud.web.obj.constant;
  * 
  * @author luojie 2014年9月21日 下午7:39:11
  */
-public class KeyConstant {
+public class SessionConstant {
     public static final String USER_ID = "user_id";
 }

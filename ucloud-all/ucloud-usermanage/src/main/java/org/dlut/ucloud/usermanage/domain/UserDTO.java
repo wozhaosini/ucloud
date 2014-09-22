@@ -5,16 +5,16 @@
  * use it only in accordance with the terms of the license agreement you entered
  * into with etao.com .
  */
-package com.dlut.ucloud.web.obj;
+package org.dlut.ucloud.usermanage.domain;
 
-import org.dlut.ucloud.common.enums.RoleEnum;
+import org.dlut.ucloud.usermanage.common.RoleEnum;
 
 /**
- * 类LoginUser.java的实现描述：TODO 类实现描述
+ * 类UserDTO.java的实现描述：TODO 类实现描述
  * 
- * @author luojie 2014年9月21日 下午11:12:47
+ * @author luojie 2014年9月22日 下午10:49:25
  */
-public class LoginUser {
+public class UserDTO {
     private String   userName;
     private long     userId;
     private RoleEnum role;

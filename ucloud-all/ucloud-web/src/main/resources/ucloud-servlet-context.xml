@@ -18,11 +18,6 @@
 		两个bean, 是spring MVC为@Controllers分发请求所必须的 -->
 	<mvc:annotation-driven />
 
-	<!-- DispatcherServlet接收到处理程序返回的视图名称，并解析为视图实现以供显示。 -->
-	<!-- <bean class="org.springframework.web.servlet.view.InternalResourceViewResolver"> 
-		<property name="prefix" value="" /> <property name="suffix" value=".jsp" 
-		/> </bean> -->
-
 	<bean id="viewResolver"
 		class="org.springframework.web.servlet.view.velocity.VelocityViewResolver">
 		<property name="cache" value="true" />

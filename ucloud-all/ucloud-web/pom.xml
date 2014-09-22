@@ -22,6 +22,11 @@
 			<artifactId>ucloud-common</artifactId>
 		</dependency>
 		
+		<dependency>
+			<groupId>org.dlut.ucloud</groupId>
+			<artifactId>ucloud-usermanage</artifactId>
+		</dependency>
+		
 		<!--spring 核心依赖包 -->
 		<dependency>
 			<groupId>org.springframework</groupId>
