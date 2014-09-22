@@ -25,11 +25,10 @@ import org.springframework.web.bind.annotation.RequestMethod;
 public class HelloController extends BaseController {
 
     @RequestMapping(method = RequestMethod.GET)
-    public void hello(HttpServletRequest request, HttpServletResponse response, ModelMap model) {
+    public String hello(HttpServletRequest request, HttpServletResponse response, ModelMap model) {
         request.setAttribute("aa", "bb");
-        System.out.println(model.get("aa"));
+        model.put("message", "haha");
 
-        model.put("cc", "dd");
-        this.outputResponseJson(response, model.get("cc").toString());
+        return "hello";
     }
 }
