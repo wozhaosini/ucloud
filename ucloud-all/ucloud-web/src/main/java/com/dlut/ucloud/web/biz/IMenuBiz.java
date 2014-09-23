@@ -11,6 +11,7 @@ import java.util.List;
 
 import org.dlut.ucloud.usermanage.common.RoleEnum;
 
+import com.dlut.ucloud.web.obj.menu.MenuEnum;
 import com.dlut.ucloud.web.obj.menu.MenuVO;
 
 /**
@@ -20,5 +21,12 @@ import com.dlut.ucloud.web.obj.menu.MenuVO;
  */
 public interface IMenuBiz {
 
-    public List<MenuVO> getMenuListByRole(RoleEnum role);
+    /**
+     * 根据角色获取菜单，同时讲currentMenu菜单设置为当前菜单
+     * 
+     * @param role
+     * @param currentMenu
+     * @return
+     */
+    public List<MenuVO> getMenuListByRole(RoleEnum role, MenuEnum currentMenu);
 }

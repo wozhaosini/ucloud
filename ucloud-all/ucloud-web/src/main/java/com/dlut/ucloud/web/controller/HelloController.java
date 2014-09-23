@@ -22,7 +22,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
  * 
  * @author luojie.lj 2014年9月18日 下午8:36:38
  */
-@RequestMapping("/hello.do")
+@RequestMapping("/student/hello.do")
 @Controller
 public class HelloController extends BaseController {
 

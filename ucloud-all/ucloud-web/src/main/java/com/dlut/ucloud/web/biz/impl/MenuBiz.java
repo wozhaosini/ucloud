@@ -11,6 +11,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import org.dlut.ucloud.usermanage.common.RoleEnum;
+import org.springframework.stereotype.Service;
 
 import com.dlut.ucloud.web.biz.IMenuBiz;
 import com.dlut.ucloud.web.obj.menu.MenuEnum;
@@ -21,14 +22,22 @@ import com.dlut.ucloud.web.obj.menu.MenuVO;
  * 
  * @author luojie.lj 2014年9月23日 下午8:57:55
  */
+@Service
 public class MenuBiz implements IMenuBiz {
 
-    public List<MenuVO> getMenuListByRole(RoleEnum role) {
+    @Override
+    public List<MenuVO> getMenuListByRole(RoleEnum role, MenuEnum currentMenu) {
         List<MenuVO> menuVOs = new ArrayList<MenuVO>();
         for (MenuEnum menuEnum : MenuEnum.values()) {
-
+            if (menuEnum.getRole() == role) {
+                MenuVO menuVO = new MenuVO();
+                menuVO.setMenuEnum(menuEnum);
+                if (menuEnum == currentMenu) {
+                    menuVO.setCurrent(true);
+                }
+                menuVOs.add(menuVO);
+            }
         }
-        return null;
+        return menuVOs;
     }
-
 }

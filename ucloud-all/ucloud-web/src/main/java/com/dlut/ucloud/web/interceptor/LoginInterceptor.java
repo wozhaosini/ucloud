@@ -1,8 +1,12 @@
 package com.dlut.ucloud.web.interceptor;
 
+import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import org.dlut.ucloud.common.UCloudResult;
+import org.dlut.ucloud.usermanage.domain.UserDTO;
+import org.dlut.ucloud.usermanage.service.IUserManageService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.web.servlet.handler.HandlerInterceptorAdapter;
@@ -16,13 +20,19 @@ import com.dlut.ucloud.web.obj.constant.SessionConstant;
  */
 public class LoginInterceptor extends HandlerInterceptorAdapter {
 
-    protected static Logger log = LoggerFactory.getLogger(LoginInterceptor.class);
+    protected static Logger      log = LoggerFactory.getLogger(LoginInterceptor.class);
+
+    @Resource(name = "userManageService")
+    protected IUserManageService userManageService;
 
     @Override
     public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler) throws Exception {
 
         String url = request.getRequestURI();
-        System.out.println("MyInterceptor.preHandle()" + url);
+        log.info("MyInterceptor.preHandle()" + url);
+
+        UCloudResult<UserDTO> result = userManageService.getUserByUserId(100);
+        log.info(result.getModel().getUserName());
 
         String strUserId = (String) request.getSession().getAttribute(SessionConstant.USER_ID);
         if (strUserId == null) {

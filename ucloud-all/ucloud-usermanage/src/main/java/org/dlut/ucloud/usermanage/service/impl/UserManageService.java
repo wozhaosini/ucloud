@@ -8,18 +8,25 @@
 package org.dlut.ucloud.usermanage.service.impl;
 
 import org.dlut.ucloud.common.UCloudResult;
+import org.dlut.ucloud.usermanage.common.RoleEnum;
 import org.dlut.ucloud.usermanage.domain.UserDTO;
 import org.dlut.ucloud.usermanage.service.IUserManageService;
+import org.springframework.stereotype.Service;
 
 /**
  * 类UserManageService.java的实现描述：TODO 类实现描述
  * 
  * @author luojie 2014年9月22日 下午10:46:29
  */
+@Service("userManageService")
 public class UserManageService implements IUserManageService {
 
+    @Override
     public UCloudResult<UserDTO> getUserByUserId(long userId) {
-        return null;
+        UserDTO userDTO = new UserDTO();
+        userDTO.setUserId(100);
+        userDTO.setUserName("luojie");
+        userDTO.setRole(RoleEnum.STUDENT);
+        return UCloudResult.successResult(userDTO);
     }
-
 }
