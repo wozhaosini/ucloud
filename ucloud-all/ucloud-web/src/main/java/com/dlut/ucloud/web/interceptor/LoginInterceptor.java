@@ -3,6 +3,8 @@ package com.dlut.ucloud.web.interceptor;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.web.servlet.handler.HandlerInterceptorAdapter;
 
 import com.dlut.ucloud.web.obj.constant.SessionConstant;
@@ -13,6 +15,8 @@ import com.dlut.ucloud.web.obj.constant.SessionConstant;
  * @author luojie 2014年9月21日 下午10:31:19
  */
 public class LoginInterceptor extends HandlerInterceptorAdapter {
+
+    protected static Logger log = LoggerFactory.getLogger(LoginInterceptor.class);
 
     @Override
     public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler) throws Exception {
