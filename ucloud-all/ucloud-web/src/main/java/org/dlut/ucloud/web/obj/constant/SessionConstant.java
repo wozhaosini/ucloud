@@ -5,7 +5,7 @@
  * use it only in accordance with the terms of the license agreement you entered
  * into with etao.com .
  */
-package com.dlut.ucloud.web.obj.constant;
+package org.dlut.ucloud.web.obj.constant;
 
 /**
  * 类SessionConstant.java的实现描述：TODO 类实现描述
