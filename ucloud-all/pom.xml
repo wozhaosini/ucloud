@@ -11,7 +11,6 @@
 		<module>ucloud-web</module>
 		<module>ucloud-vmmanage</module>
 		<module>ucloud-imagemanage</module>
-		<module>ucloud-accountmanage</module>
 		<module>ucloud-usermanage</module>
 		<module>ucloud-diskmanage</module>
 		<module>ucloud-common</module>
@@ -71,6 +70,25 @@
 			<artifactId>log4j</artifactId>
 		</dependency>
 	</dependencies>
+
+	<build>
+		<plugins>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-jar-plugin</artifactId>
+				<version>2.3.1</version>
+				<configuration>
+					<archive>
+						<addMavenDescriptor>false</addMavenDescriptor>
+						<manifest>
+							<addDefaultImplementationEntries>true</addDefaultImplementationEntries>
+							<addDefaultSpecificationEntries>true</addDefaultSpecificationEntries>
+						</manifest>
+					</archive>
+				</configuration>
+			</plugin>
+		</plugins>
+	</build>
 
 	<dependencyManagement>
 		<dependencies>
