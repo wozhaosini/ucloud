@@ -17,5 +17,5 @@ import org.dlut.ucloud.usermanage.domain.UserDTO;
  */
 public interface IUserManageService {
 
-    UCloudResult<UserDTO> getUserByUserId(long userId);
+    UCloudResult<UserDTO> getUserByAccount(String account);
 }

@@ -16,7 +16,7 @@ import org.dlut.ucloud.usermanage.common.RoleEnum;
  */
 public class UserDTO {
     private String   userName;
-    private long     userId;
+    private String   account;
     private RoleEnum role;
 
     public String getUserName() {
@@ -27,20 +27,20 @@ public class UserDTO {
         this.userName = userName;
     }
 
-    public long getUserId() {
-        return userId;
-    }
-
-    public void setUserId(long userId) {
-        this.userId = userId;
-    }
-
     public RoleEnum getRole() {
         return role;
     }
 
     public void setRole(RoleEnum role) {
         this.role = role;
+    }
+
+    public String getAccount() {
+        return account;
+    }
+
+    public void setAccount(String account) {
+        this.account = account;
     }
 
 }

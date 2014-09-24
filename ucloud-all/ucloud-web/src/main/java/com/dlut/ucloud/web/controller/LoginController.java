@@ -17,24 +17,29 @@ import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
+import com.dlut.ucloud.web.obj.LoginReqDTO;
+
 /**
- * 类HelloController.java的实现描述
+ * 类LoginController.java的实现描述：TODO 类实现描述
  * 
- * @author luojie.lj 2014年9月18日 下午8:36:38
+ * @author luojie.lj 2014年9月24日 下午7:55:39
  */
-@RequestMapping("/student/hello.do")
+@RequestMapping("/login")
 @Controller
-public class HelloController extends BaseController {
+public class LoginController extends BaseController {
 
-    private static Logger log = LoggerFactory.getLogger(HelloController.class);
+    private static Logger log = LoggerFactory.getLogger(LoginController.class);
 
-    @RequestMapping(method = RequestMethod.GET)
-    public String hello(String name, HttpServletRequest request, HttpServletResponse response, ModelMap model) {
-        request.setAttribute("aa", "bb");
-        model.put("message", "haha");
-        log.info("xx");
-        log.info("name:" + name);
-
+    @RequestMapping(method = { RequestMethod.POST, RequestMethod.GET })
+    public String login(LoginReqDTO loginReqDTO, HttpServletRequest request, HttpServletResponse response,
+                        ModelMap model) {
+        if (request.getMethod().equals("GET")) {
+            return "login";
+        }
+        log.info(request.getMethod());
+        log.info(loginReqDTO.getAccount());
+        log.info(null);
+        model.put("message", "xixi");
         return "hello";
     }
 }

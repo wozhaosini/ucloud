@@ -22,9 +22,9 @@ import org.springframework.stereotype.Service;
 public class UserManageService implements IUserManageService {
 
     @Override
-    public UCloudResult<UserDTO> getUserByUserId(long userId) {
+    public UCloudResult<UserDTO> getUserByAccount(String account) {
         UserDTO userDTO = new UserDTO();
-        userDTO.setUserId(100);
+        userDTO.setAccount("200992288");
         userDTO.setUserName("luojie");
         userDTO.setRole(RoleEnum.STUDENT);
         return UCloudResult.successResult(userDTO);

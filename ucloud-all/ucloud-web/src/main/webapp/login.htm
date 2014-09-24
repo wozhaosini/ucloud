@@ -34,21 +34,23 @@
 					</div>
 					
 					<p>
-						<label>用户名</label>
-						<input class="text-input" type="text" />
+						<label>账号</label>
+						<input class="text-input" type="text" name="account"/>
 					</p>
 					<div class="clear"></div>
 					<p>
 						<label>密码</label>
-						<input class="text-input" type="password" />
+						<input class="text-input" type="password" name="password"/>
 					</p>
 					<div class="clear"></div>
 					<p id="remember-password">
-						<input type="checkbox" />Remember me
+						<input type="radio" name="role" value="1" checked/>学生 
+						<input type="radio" name="role" value="2" />教师 
+						<input type="radio" name="role" value="3" />管理员 
 					</p>
 					<div class="clear"></div>
 					<p>
-						<input class="button" type="submit" value="Sign In..." />
+						<input class="button" type="submit" value="登录" />
 					</p>
 					
 				</form>

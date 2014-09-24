@@ -4,8 +4,6 @@ import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import org.dlut.ucloud.common.UCloudResult;
-import org.dlut.ucloud.usermanage.domain.UserDTO;
 import org.dlut.ucloud.usermanage.service.IUserManageService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -30,9 +28,6 @@ public class LoginInterceptor extends HandlerInterceptorAdapter {
 
         String url = request.getRequestURI();
         log.info("MyInterceptor.preHandle()" + url);
-
-        UCloudResult<UserDTO> result = userManageService.getUserByUserId(100);
-        log.info(result.getModel().getUserName());
 
         String strUserId = (String) request.getSession().getAttribute(SessionConstant.USER_ID);
         if (strUserId == null) {
