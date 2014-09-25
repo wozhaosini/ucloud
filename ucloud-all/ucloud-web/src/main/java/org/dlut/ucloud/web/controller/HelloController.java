@@ -5,7 +5,7 @@
  * use it only in accordance with the terms of the license agreement you entered
  * into with etao.com .
  */
-package com.dlut.ucloud.web.controller;
+package org.dlut.ucloud.web.controller;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -29,11 +29,10 @@ public class HelloController extends BaseController {
     private static Logger log = LoggerFactory.getLogger(HelloController.class);
 
     @RequestMapping(method = RequestMethod.GET)
-    public String hello(String name, HttpServletRequest request, HttpServletResponse response, ModelMap model) {
+    public String hello(HttpServletRequest request, HttpServletResponse response, ModelMap model) {
         request.setAttribute("aa", "bb");
         model.put("message", "haha");
         log.info("xx");
-        log.info("name:" + name);
 
         return "hello";
     }

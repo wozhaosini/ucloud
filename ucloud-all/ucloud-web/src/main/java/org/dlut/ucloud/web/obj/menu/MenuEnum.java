@@ -5,7 +5,7 @@
  * use it only in accordance with the terms of the license agreement you entered
  * into with etao.com .
  */
-package com.dlut.ucloud.web.obj.menu;
+package org.dlut.ucloud.web.obj.menu;
 
 import org.dlut.ucloud.usermanage.common.RoleEnum;
 

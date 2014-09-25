@@ -5,14 +5,13 @@
  * use it only in accordance with the terms of the license agreement you entered
  * into with etao.com .
  */
-package com.dlut.ucloud.web.biz;
+package org.dlut.ucloud.web.biz;
 
 import java.util.List;
 
 import org.dlut.ucloud.usermanage.common.RoleEnum;
-
-import com.dlut.ucloud.web.obj.menu.MenuEnum;
-import com.dlut.ucloud.web.obj.menu.MenuVO;
+import org.dlut.ucloud.web.obj.menu.MenuEnum;
+import org.dlut.ucloud.web.obj.menu.MenuVO;
 
 /**
  * 类IMenuBiz.java的实现描述：TODO 类实现描述
