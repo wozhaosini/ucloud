@@ -7,9 +7,16 @@
  */
 package org.dlut.ucloud.web.controller;
 
+import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import org.apache.commons.lang.StringUtils;
+import org.dlut.ucloud.common.UCloudResult;
+import org.dlut.ucloud.usermanage.domain.UserDTO;
+import org.dlut.ucloud.usermanage.service.IUserManageService;
+import org.dlut.ucloud.web.obj.constant.SessionConstant;
+import org.dlut.ucloud.web.obj.constant.UrlConstant;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Controller;
@@ -28,18 +35,28 @@ import com.dlut.ucloud.web.obj.LoginReqDTO;
 @Controller
 public class LoginController extends BaseController {
 
-    private static Logger log = LoggerFactory.getLogger(LoginController.class);
+    private static Logger      log = LoggerFactory.getLogger(LoginController.class);
+
+    @Resource(name = "userManageService")
+    private IUserManageService userManageService;
 
     @RequestMapping(method = { RequestMethod.POST, RequestMethod.GET })
-    public String login(LoginReqDTO loginReqDTO, HttpServletRequest request, HttpServletResponse response,
-                        ModelMap model) {
+    public String login(LoginReqDTO loginReqDTO, String redirect, HttpServletRequest request,
+                        HttpServletResponse response, ModelMap model) {
         if (request.getMethod().equals("GET")) {
-            return "login";
+            return UrlConstant.LOGIN_URL;
         }
-        log.info(request.getMethod());
-        log.info(loginReqDTO.getAccount());
-        log.info(null);
-        model.put("message", "xixi");
-        return "hello";
+        // TODO 验证用户的合法性
+        UCloudResult<UserDTO> resutlt = userManageService.getUserByAccount(loginReqDTO.getAccount());
+        if (resutlt.isSuccess() && resutlt.getModel() != null) {
+            request.getSession(true).setAttribute(SessionConstant.USER_ACCOUNT, resutlt.getModel().getAccount());
+            if (StringUtils.isBlank(redirect)) {
+                return goDefaultPage();
+            }
+            log.info("redirect:" + redirect);
+            return "redirect:" + redirect;
+        }
+
+        return UrlConstant.LOGIN_URL;
     }
 }

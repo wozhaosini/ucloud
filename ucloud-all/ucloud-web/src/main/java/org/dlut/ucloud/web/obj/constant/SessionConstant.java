@@ -13,5 +13,5 @@ package org.dlut.ucloud.web.obj.constant;
  * @author luojie 2014年9月21日 下午7:39:11
  */
 public class SessionConstant {
-    public static final String USER_ID = "user_id";
+    public static final String USER_ACCOUNT = "user_account";
 }

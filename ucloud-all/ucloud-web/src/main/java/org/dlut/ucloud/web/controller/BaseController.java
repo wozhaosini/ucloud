@@ -9,10 +9,9 @@ package org.dlut.ucloud.web.controller;
 
 import java.io.IOException;
 
-import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import org.apache.commons.lang.StringUtils;
+import org.dlut.ucloud.web.obj.constant.UrlConstant;
 import org.springframework.ui.Model;
 
 /**
@@ -26,12 +25,12 @@ public class BaseController {
 
     }
 
-    protected String getCurUrl(HttpServletRequest request) {
-        String curUrl = request.getRequestURI();
-        if (!StringUtils.isBlank(request.getQueryString())) {
-            curUrl += "?" + request.getQueryString();
-        }
-        return curUrl;
+    protected String goLoginPage() {
+        return "redirect:" + UrlConstant.LOGIN_URL;
+    }
+
+    protected String goDefaultPage() {
+        return "redirect:" + UrlConstant.DEFAULT_URL;
     }
 
     protected void outputResponseJson(HttpServletResponse response, String jsonMap) {

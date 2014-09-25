@@ -4,11 +4,15 @@ import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import org.apache.commons.lang.StringUtils;
 import org.dlut.ucloud.usermanage.service.IUserManageService;
 import org.dlut.ucloud.web.obj.constant.SessionConstant;
+import org.dlut.ucloud.web.obj.constant.UrlConstant;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.web.servlet.handler.HandlerInterceptorAdapter;
+
+import com.dlut.ucloud.web.utils.UrlUtil;
 
 /**
  * 拦截未登陆用户
@@ -28,9 +32,10 @@ public class LoginInterceptor extends HandlerInterceptorAdapter {
         String url = request.getRequestURI();
         log.info("MyInterceptor.preHandle()" + url);
 
-        String strUserId = (String) request.getSession().getAttribute(SessionConstant.USER_ID);
-        if (strUserId == null) {
-
+        String userAccount = (String) request.getSession().getAttribute(SessionConstant.USER_ACCOUNT);
+        if (StringUtils.isBlank(userAccount)) {
+            response.sendRedirect(UrlConstant.LOGIN_URL + "?redirect=" + UrlUtil.getCurUrl(request));
+            return false;
         }
 
         return super.preHandle(request, response, handler);

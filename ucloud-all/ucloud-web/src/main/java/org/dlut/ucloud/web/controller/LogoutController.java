@@ -10,6 +10,7 @@ package org.dlut.ucloud.web.controller;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import org.dlut.ucloud.web.obj.constant.SessionConstant;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Controller;
@@ -18,22 +19,19 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
 /**
- * 类HelloController.java的实现描述
+ * 类LoginController.java的实现描述：TODO 类实现描述
  * 
- * @author luojie.lj 2014年9月18日 下午8:36:38
+ * @author luojie.lj 2014年9月24日 下午7:55:39
  */
-@RequestMapping("/student/hello.do")
+@RequestMapping("/logout")
 @Controller
-public class HelloController extends BaseController {
+public class LogoutController extends BaseController {
 
-    private static Logger log = LoggerFactory.getLogger(HelloController.class);
+    private static Logger log = LoggerFactory.getLogger(LogoutController.class);
 
     @RequestMapping(method = RequestMethod.GET)
-    public String hello(String name, HttpServletRequest request, HttpServletResponse response, ModelMap model) {
-        request.setAttribute("aa", "bb");
-        model.put("message", name);
-        log.info("xx");
-
-        return "hello";
+    public String logout(HttpServletRequest request, HttpServletResponse response, ModelMap model) {
+        request.getSession().removeAttribute(SessionConstant.USER_ACCOUNT);
+        return this.goLoginPage();
     }
 }
