@@ -1,0 +1,30 @@
+<div id="sidebar"><div id="sidebar-wrapper"> <!-- Sidebar with logo and menu -->
+			
+			<h1 id="sidebar-title"><a href="#">Simpla Admin</a></h1>
+		  
+			<!-- Logo (221px wide) -->
+			<a href="#"><img id="logo" src="/resources/images/logo.png" alt="Simpla Admin logo" /></a>
+		  
+			<!-- Sidebar Profile links -->
+			<div id="profile-links">
+				Hello, 罗劼 | <a href="/logout" title="Sign Out">退出</a>
+			</div>        
+			<br/>
+			<br/>
+			<ul id="main-nav">  <!-- Accordion Menu -->
+				
+				<li> 
+					<a href="#" class="current"> <!-- Add the class "current" to current menu item -->
+					</a>
+					<ul>
+						<li><a class="current" href="#">虚拟机</a></li>
+						<li><a href="#">Manage Articles</a></li> <!-- Add class "current" to sub menu items also -->
+						<li><a href="#">Manage Comments</a></li>
+						<li><a href="#">Manage Categories</a></li>
+					</ul>
+				</li>
+				
+				
+			</ul> <!-- End #main-nav -->
+			
+		</div></div> <!-- End #sidebar -->

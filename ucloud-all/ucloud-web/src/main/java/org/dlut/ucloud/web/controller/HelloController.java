@@ -32,8 +32,10 @@ public class HelloController extends BaseController {
     public String hello(String name, HttpServletRequest request, HttpServletResponse response, ModelMap model) {
         request.setAttribute("aa", "bb");
         model.put("message", name);
+        model.put("screen", "student/hello.vm");
         log.info("xx");
 
-        return "hello";
+        return "default";
+        //        return "hello";
     }
 }
