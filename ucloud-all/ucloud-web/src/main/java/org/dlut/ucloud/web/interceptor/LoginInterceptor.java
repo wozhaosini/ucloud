@@ -8,11 +8,10 @@ import org.apache.commons.lang.StringUtils;
 import org.dlut.ucloud.usermanage.service.IUserManageService;
 import org.dlut.ucloud.web.obj.constant.SessionConstant;
 import org.dlut.ucloud.web.obj.constant.UrlConstant;
+import org.dlut.ucloud.web.utils.UrlUtil;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.web.servlet.handler.HandlerInterceptorAdapter;
-
-import com.dlut.ucloud.web.utils.UrlUtil;
 
 /**
  * 拦截未登陆用户

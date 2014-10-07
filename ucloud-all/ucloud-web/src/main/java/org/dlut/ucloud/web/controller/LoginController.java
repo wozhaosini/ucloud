@@ -15,6 +15,7 @@ import org.apache.commons.lang.StringUtils;
 import org.dlut.ucloud.common.UCloudResult;
 import org.dlut.ucloud.usermanage.domain.UserDTO;
 import org.dlut.ucloud.usermanage.service.IUserManageService;
+import org.dlut.ucloud.web.obj.LoginReqDTO;
 import org.dlut.ucloud.web.obj.constant.SessionConstant;
 import org.dlut.ucloud.web.obj.constant.UrlConstant;
 import org.slf4j.Logger;
@@ -23,8 +24,6 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
-
-import com.dlut.ucloud.web.obj.LoginReqDTO;
 
 /**
  * 类LoginController.java的实现描述：TODO 类实现描述

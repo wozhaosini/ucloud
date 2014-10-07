@@ -5,7 +5,7 @@
  * use it only in accordance with the terms of the license agreement you entered
  * into with etao.com .
  */
-package com.dlut.ucloud.web.utils;
+package org.dlut.ucloud.web.utils;
 
 import java.io.UnsupportedEncodingException;
 import java.net.URLEncoder;
