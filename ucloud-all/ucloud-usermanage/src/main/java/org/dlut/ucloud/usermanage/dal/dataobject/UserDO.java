@@ -7,32 +7,36 @@
  */
 package org.dlut.ucloud.usermanage.dal.dataobject;
 
+import org.dlut.ucloud.common.BaseDO;
+
 /**
  * 类UserDO.java的实现描述：TODO 类实现描述
  * 
  * @author luojie 2014年10月7日 下午8:04:12
  */
-public class UserDO {
+public class UserDO extends BaseDO {
+
+    private static final long serialVersionUID = 8228538453404129736L;
 
     /**
      * 账号
      */
-    private String account;
+    private String            account;
 
     /**
      * 用户名
      */
-    private String username;
+    private String            username;
 
     /**
      * 密码
      */
-    private String password;
+    private String            password;
 
     /**
      * 角色
      */
-    private int    role;
+    private int               role;
 
     public String getAccount() {
         return account;
