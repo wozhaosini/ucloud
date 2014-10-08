@@ -11,6 +11,7 @@ import java.io.IOException;
 
 import javax.servlet.http.HttpServletResponse;
 
+import org.dlut.ucloud.usermanage.common.RoleEnum;
 import org.dlut.ucloud.web.obj.constant.UrlConstant;
 import org.springframework.ui.Model;
 
@@ -29,8 +30,16 @@ public class BaseController {
         return "redirect:" + UrlConstant.LOGIN_URL;
     }
 
-    protected String goDefaultPage() {
-        return "redirect:" + UrlConstant.DEFAULT_URL;
+    protected String goDefaultPage(RoleEnum role) {
+        StringBuilder page = new StringBuilder("redirect:");
+        if (role == RoleEnum.ADMIN) {
+            page.append(UrlConstant.ADMIN_DEFAULT_URL);
+        } else if (role == RoleEnum.STUDENT) {
+            page.append(UrlConstant.STUDENT_DEFAULT_URL);
+        } else if (role == RoleEnum.TEACHER) {
+            page.append(UrlConstant.TEACHER_DEFAULT_URL);
+        }
+        return page.toString();
     }
 
     protected void outputResponseJson(HttpServletResponse response, String jsonMap) {

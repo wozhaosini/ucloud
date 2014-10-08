@@ -13,6 +13,7 @@ import javax.servlet.http.HttpServletResponse;
 
 import org.apache.commons.lang.StringUtils;
 import org.dlut.ucloud.common.UCloudResult;
+import org.dlut.ucloud.usermanage.common.RoleEnum;
 import org.dlut.ucloud.usermanage.domain.UserDTO;
 import org.dlut.ucloud.usermanage.service.IUserManageService;
 import org.dlut.ucloud.web.obj.LoginReqDTO;
@@ -45,17 +46,56 @@ public class LoginController extends BaseController {
         if (request.getMethod().equals("GET")) {
             return UrlConstant.LOGIN_URL;
         }
+
         // TODO 验证用户的合法性
-        UCloudResult<UserDTO> resutlt = userManageService.getUserByAccount(loginReqDTO.getAccount());
-        if (resutlt.isSuccess() && resutlt.getModel() != null) {
-            request.getSession(true).setAttribute(SessionConstant.USER_ACCOUNT, resutlt.getModel().getAccount());
+        model.addAttribute("loginReqDTO", loginReqDTO);
+        String errorDesc = check(loginReqDTO);
+        if (!StringUtils.isBlank(errorDesc)) {
+            model.addAttribute("errorDesc", errorDesc);
+            return UrlConstant.LOGIN_URL;
+        }
+
+        UCloudResult<UserDTO> result = userManageService.getUserByAccount(loginReqDTO.getAccount());
+        if (result.isSuccess() && result.getModel() != null
+                && result.getModel().getRole() != RoleEnum.getRoleByStatus(loginReqDTO.getRole())) {
+            request.getSession(true).setAttribute(SessionConstant.USER_ACCOUNT, result.getModel().getAccount());
             if (StringUtils.isBlank(redirect)) {
-                return goDefaultPage();
+                return goDefaultPage(RoleEnum.ADMIN);
             }
             log.info("redirect:" + redirect);
             return "redirect:" + redirect;
+        } else {
+            model.addAttribute("errorDesc", "用户名或密码错误");
         }
 
         return UrlConstant.LOGIN_URL;
+    }
+
+    /**
+     * 验证表单是否合法
+     * 
+     * @param loginReqDTO
+     * @return
+     */
+    private String check(LoginReqDTO loginReqDTO) {
+        String errorDesc = null;
+        if (loginReqDTO == null) {
+            errorDesc = "表单不能为空";
+            return errorDesc;
+        }
+        if (StringUtils.isBlank(loginReqDTO.getAccount())) {
+            errorDesc = "账号不能为空";
+            return errorDesc;
+        }
+        if (StringUtils.isBlank(loginReqDTO.getPassword())) {
+            errorDesc = "密码不能为空";
+            return errorDesc;
+        }
+        RoleEnum role = RoleEnum.getRoleByStatus(loginReqDTO.getRole());
+        if (role == null) {
+            errorDesc = "请选择登陆的角色";
+            return errorDesc;
+        }
+        return errorDesc;
     }
 }

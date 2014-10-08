@@ -20,6 +20,15 @@ public enum RoleEnum {
     private int    status;
     private String desc;
 
+    public static RoleEnum getRoleByStatus(int status) {
+        for (RoleEnum roleEnum : RoleEnum.values()) {
+            if (roleEnum.getStatus() == status) {
+                return roleEnum;
+            }
+        }
+        return null;
+    }
+
     private RoleEnum(int status, String desc) {
         this.status = status;
         this.desc = desc;

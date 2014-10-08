@@ -21,27 +21,29 @@
 		<!-- End #logn-top -->
 		<div id="login-content">
 			<form action="" method="post">
-				<div class="notification information png_bg">
+				#if ($!errorDesc)
+				<div class="notification error png_bg">
 					<div>
-						Just click "Sign In". No password needed.
+						$!errorDesc
 					</div>
 				</div>
+				#end
 				<p>
-				<label>用户名</label>
-				<input class="text-input" type="text" name="username"/>
+				<label>账号</label>
+				<input class="text-input" type="text" value="$!loginReqDTO.account" name="account"/>
 				</p>
 				<div class="clear"></div>
 				<p>
 				<label>密码</label>
-				<input class="text-input" type="password" name="password"/>
+				<input class="text-input" type="password" value="$!loginReqDTO.password" name="password"/>
 				</p>
 				<div class="clear"></div>
 				<p id="remember-password">
-				<input type="radio" name="role" value="1" checked/>
+				<input type="radio" name="role" value="1" #if($!loginReqDTO.role == 1) checked #end/>
 				学生
-				<input type="radio" name="role" value="2" />
+				<input type="radio" name="role" value="2" #if($!loginReqDTO.role == 2) checked #end/>
 				教师
-				<input type="radio" name="role" value="3" />
+				<input type="radio" name="role" value="3" #if($!loginReqDTO.role == 3) checked #end/>
 				管理员
 				</p>
 				<div class="clear"></div>

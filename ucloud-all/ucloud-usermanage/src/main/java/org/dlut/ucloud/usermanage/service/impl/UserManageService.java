@@ -7,8 +7,12 @@
  */
 package org.dlut.ucloud.usermanage.service.impl;
 
+import javax.annotation.Resource;
+
 import org.dlut.ucloud.common.UCloudResult;
-import org.dlut.ucloud.usermanage.common.RoleEnum;
+import org.dlut.ucloud.usermanage.convent.UserConvent;
+import org.dlut.ucloud.usermanage.dal.dataobject.UserDO;
+import org.dlut.ucloud.usermanage.dao.UserManageDAO;
 import org.dlut.ucloud.usermanage.domain.UserDTO;
 import org.dlut.ucloud.usermanage.service.IUserManageService;
 import org.springframework.stereotype.Service;
@@ -21,12 +25,20 @@ import org.springframework.stereotype.Service;
 @Service("userManageService")
 public class UserManageService implements IUserManageService {
 
+    @Resource
+    private UserManageDAO userManageDAO;
+
     @Override
     public UCloudResult<UserDTO> getUserByAccount(String account) {
-        UserDTO userDTO = new UserDTO();
-        userDTO.setAccount("200992288");
-        userDTO.setUserName("luojie");
-        userDTO.setRole(RoleEnum.STUDENT);
+
+        UserDO userDO = userManageDAO.getUserByAccount(account);
+        UserDTO userDTO = UserConvent.conventToUserDTO(userDO);
         return UCloudResult.successResult(userDTO);
+
+        //        UserDTO userDTO = new UserDTO();
+        //        userDTO.setAccount("200992288");
+        //        userDTO.setUserName("luojie");
+        //        userDTO.setRole(RoleEnum.STUDENT);
+        //        return UCloudResult.successResult(userDTO);
     }
 }

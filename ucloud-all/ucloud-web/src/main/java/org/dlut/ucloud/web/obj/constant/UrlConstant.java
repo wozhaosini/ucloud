@@ -13,9 +13,15 @@ package org.dlut.ucloud.web.obj.constant;
  * @author luojie.lj 2014年9月25日 上午11:01:57
  */
 public class UrlConstant {
-    public static String LOGIN_URL   = "/login";
+    public static String LOGIN_URL           = "/login";
 
-    public static String LOGOUT_URL  = "/logout";
+    public static String LOGOUT_URL          = "/logout";
 
-    public static String DEFAULT_URL = "index";
+    public static String DEFAULT_URL         = "index";
+
+    public static String STUDENT_DEFAULT_URL = "/student/index";
+
+    public static String TEACHER_DEFAULT_URL = "/teacher/index";
+
+    public static String ADMIN_DEFAULT_URL   = "/admin/index";
 }

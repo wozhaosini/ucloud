@@ -16,7 +16,7 @@
 	<select id="getUserByAccount" resultMap="RM-UserDO">
 		SELECT
 		<include refid="select-param-column" />
-		FROM dd_privilege_group where account = #{account}
+		FROM ucloud_user where account = #{account}
 	</select>
 
 </mapper>
