@@ -3,6 +3,7 @@
 <mapper namespace="org.dlut.ucloud.usermanage.dal.mapper.UserManageMapper">
 	<resultMap id="RM-UserDO" type="UserDO">
 		<result property="account" column="account" />
+		<result property="password" column="password" />
 		<result property="username" column="username" />
 		<result property="role" column="role" />
 		<result property="gmtCreate" column="gmt_create" />
@@ -10,7 +11,7 @@
 	</resultMap>
 
 	<sql id="select-param-column">
-		account, username, role, gmt_create, gmt_modified
+		account, username, password, role, gmt_create, gmt_modified
 	</sql>
 
 	<select id="getUserByAccount" resultMap="RM-UserDO">

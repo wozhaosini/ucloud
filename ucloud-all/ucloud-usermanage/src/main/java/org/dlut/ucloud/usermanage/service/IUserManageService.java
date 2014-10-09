@@ -8,6 +8,7 @@
 package org.dlut.ucloud.usermanage.service;
 
 import org.dlut.ucloud.common.UCloudResult;
+import org.dlut.ucloud.usermanage.common.RoleEnum;
 import org.dlut.ucloud.usermanage.domain.UserDTO;
 
 /**
@@ -18,4 +19,14 @@ import org.dlut.ucloud.usermanage.domain.UserDTO;
 public interface IUserManageService {
 
     UCloudResult<UserDTO> getUserByAccount(String account);
+
+    /**
+     * 验证用户是否合法
+     * 
+     * @param account
+     * @param password
+     * @param role
+     * @return 如果合法，则返回userDTO，否则返回null
+     */
+    UCloudResult<UserDTO> verifyAndGetUser(String account, String password, RoleEnum roleEnum);
 }

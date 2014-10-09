@@ -47,7 +47,7 @@ public class LoginController extends BaseController {
             return UrlConstant.LOGIN_URL;
         }
 
-        // TODO 验证用户的合法性
+        // 验证用户的合法性
         model.addAttribute("loginReqDTO", loginReqDTO);
         String errorDesc = check(loginReqDTO);
         if (!StringUtils.isBlank(errorDesc)) {
@@ -55,12 +55,12 @@ public class LoginController extends BaseController {
             return UrlConstant.LOGIN_URL;
         }
 
-        UCloudResult<UserDTO> result = userManageService.getUserByAccount(loginReqDTO.getAccount());
-        if (result.isSuccess() && result.getModel() != null
-                && result.getModel().getRole() != RoleEnum.getRoleByStatus(loginReqDTO.getRole())) {
+        UCloudResult<UserDTO> result = userManageService.verifyAndGetUser(loginReqDTO.getAccount(),
+                loginReqDTO.getPassword(), RoleEnum.getRoleByStatus(loginReqDTO.getRole()));
+        if (result.isSuccess() && result.getModel() != null) {
             request.getSession(true).setAttribute(SessionConstant.USER_ACCOUNT, result.getModel().getAccount());
             if (StringUtils.isBlank(redirect)) {
-                return goDefaultPage(RoleEnum.ADMIN);
+                return goDefaultPage(result.getModel().getRole());
             }
             log.info("redirect:" + redirect);
             return "redirect:" + redirect;

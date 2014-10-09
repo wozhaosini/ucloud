@@ -19,7 +19,7 @@ public class UrlConstant {
 
     public static String DEFAULT_URL         = "index";
 
-    public static String STUDENT_DEFAULT_URL = "/student/index";
+    public static String STUDENT_DEFAULT_URL = "/student/vm/list";
 
     public static String TEACHER_DEFAULT_URL = "/teacher/index";
 

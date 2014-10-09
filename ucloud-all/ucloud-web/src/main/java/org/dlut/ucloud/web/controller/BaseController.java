@@ -26,6 +26,11 @@ public class BaseController {
 
     }
 
+    /**
+     * 重定向到登陆页面
+     * 
+     * @return
+     */
     protected String goLoginPage() {
         return "redirect:" + UrlConstant.LOGIN_URL;
     }
