@@ -10,7 +10,10 @@ package org.dlut.ucloud.web.controller.student;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import org.dlut.ucloud.usermanage.domain.UserDTO;
 import org.dlut.ucloud.web.controller.BaseController;
+import org.dlut.ucloud.web.obj.constant.UrlConstant;
+import org.dlut.ucloud.web.obj.menu.MenuEnum;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -20,13 +23,20 @@ import org.springframework.web.bind.annotation.RequestMapping;
  * 
  * @author luojie 2014年10月9日 下午11:33:03
  */
-@RequestMapping("/student/vm/*")
 @Controller
 public class VMController extends BaseController {
 
-    @RequestMapping(value = "list")
+    @RequestMapping(value = UrlConstant.STUDENT_VM_LIST)
     public String vmList(HttpServletRequest request, HttpServletResponse response, ModelMap model) {
-        return "student/vmlist";
+        String errorDesc = setDefaultEnv(request, response, model);
+        if (errorDesc != null) {
+            return goErrorPage(errorDesc);
+        }
+        UserDTO userDTO = (UserDTO) model.get("loginUser");
+
+        this.setShowMenuList(userDTO.getRole(), MenuEnum.STUDENT_MENU_VM, model);
+        model.put("screen", "student/vmlist.vm");
+        return "default";
     }
 
 }

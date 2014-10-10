@@ -20,7 +20,7 @@ import org.springframework.web.servlet.handler.HandlerInterceptorAdapter;
  */
 public class LoginInterceptor extends HandlerInterceptorAdapter {
 
-    protected static Logger      log = LoggerFactory.getLogger(LoginInterceptor.class);
+    private static Logger        log = LoggerFactory.getLogger(LoginInterceptor.class);
 
     @Resource(name = "userManageService")
     protected IUserManageService userManageService;

@@ -13,15 +13,41 @@ package org.dlut.ucloud.web.obj.constant;
  * @author luojie.lj 2014年9月25日 上午11:01:57
  */
 public class UrlConstant {
-    public static String LOGIN_URL           = "/login";
+    /**
+     * 登陆页面
+     */
+    public static final String LOGIN_URL           = "/login";
 
-    public static String LOGOUT_URL          = "/logout";
+    /**
+     * 登出页面
+     */
+    public static final String LOGOUT_URL          = "/logout";
 
-    public static String DEFAULT_URL         = "index";
+    /**
+     * 错误页面
+     */
+    public static final String ERROR_URL           = "/error";
 
-    public static String STUDENT_DEFAULT_URL = "/student/vm/list";
+    public static final String DEFAULT_URL         = "index";
 
-    public static String TEACHER_DEFAULT_URL = "/teacher/index";
+    /**
+     * 学生角色虚拟机列表页面
+     */
+    public static final String STUDENT_VM_LIST     = "/student/vm/list";
 
-    public static String ADMIN_DEFAULT_URL   = "/admin/index";
+    /**
+     * 学生角色登陆后的默认页
+     */
+    public static final String STUDENT_DEFAULT_URL = STUDENT_VM_LIST;
+
+    /**
+     * 教师角色登陆后的默认页
+     */
+    public static final String TEACHER_DEFAULT_URL = "/teacher/index";
+
+    /**
+     * 管理员登陆后的默认页
+     */
+    public static final String ADMIN_DEFAULT_URL   = "/admin/index";
+
 }

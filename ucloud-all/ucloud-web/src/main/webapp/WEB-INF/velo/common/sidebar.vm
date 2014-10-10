@@ -17,10 +17,9 @@
 					<a href="#" class="current"> <!-- Add the class "current" to current menu item -->
 					</a>
 					<ul>
-						<li><a class="current" href="#">虚拟机</a></li>
-						<li><a href="#">Manage Articles</a></li> <!-- Add class "current" to sub menu items also -->
-						<li><a href="#">Manage Comments</a></li>
-						<li><a href="#">Manage Categories</a></li>
+						#foreach($menu in $menuList)
+							<li><a #if($!menu.isCurrent()) class="current" #end href="$!menu.menuEnum.route">$!menu.menuEnum.name</a></li>
+						#end
 					</ul>
 				</li>
 				

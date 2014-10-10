@@ -8,6 +8,7 @@
 package org.dlut.ucloud.web.obj.menu;
 
 import org.dlut.ucloud.usermanage.common.RoleEnum;
+import org.dlut.ucloud.web.obj.constant.UrlConstant;
 
 /**
  * 类MenuEnum.java的实现描述：TODO 类实现描述
@@ -15,7 +16,7 @@ import org.dlut.ucloud.usermanage.common.RoleEnum;
  * @author luojie.lj 2014年9月23日 下午8:40:38
  */
 public enum MenuEnum {
-    STUDENT_MENU_VM("虚拟机", "", RoleEnum.STUDENT),
+    STUDENT_MENU_VM("虚拟机", UrlConstant.STUDENT_VM_LIST, RoleEnum.STUDENT),
     STUDENT_MENU_DISK("硬盘", "", RoleEnum.STUDENT);
 
     private String   name;
